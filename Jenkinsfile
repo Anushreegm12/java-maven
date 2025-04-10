@@ -24,9 +24,11 @@ pipeline {
             }
         }
         
-        stage('Sonarqube Analysis'){
-            steps{
-                echo 'sonar qube analysis'
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh "mvn sonar:sonar -Dsonar.projectKey=java-microservices -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_TOKEN"
+                }
             }
         }
 
