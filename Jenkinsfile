@@ -6,6 +6,12 @@ pipeline {
     }
 
     stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Anushreegm12/java-maven.git'
+            }
+        }
+        
         stage('Build') {
             steps {
                 sh 'mvn clean package -DskipTests=false'
