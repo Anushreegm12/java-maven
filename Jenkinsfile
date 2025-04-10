@@ -39,8 +39,7 @@ pipeline {
         }
         stage('Push to DockerHub') {
             steps {
-                withDockerRegistry([credentialsId: 'docker-hub-credentials', url: '']) {
-                    sh 'docker push anushreegm12/java-microservice'
+                echo "sonarqube"
                 }
             }
         }
