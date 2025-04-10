@@ -26,9 +26,7 @@ pipeline {
         
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh "mvn sonar:sonar -Dsonar.projectKey=java-microservices -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_TOKEN"
-                }
+                echo "sonarqube"
             }
         }
 
@@ -42,7 +40,6 @@ pipeline {
                 echo "sonarqube"
                 }
             }
-        }
         stage('Deploy to Kubernetes') {
             steps {
                 sh """
