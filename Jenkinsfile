@@ -18,9 +18,15 @@ pipeline {
             }
         }
 
-        stage('Test') {
+         stage('Test') {
             steps {
                 sh 'mvn test'
+            }
+        }
+        
+        stage('Sonarqube Analysis'){
+            steps{
+                echo 'sonar qube analysis'
             }
         }
 
